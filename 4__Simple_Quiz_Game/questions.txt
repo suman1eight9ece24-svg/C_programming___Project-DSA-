@@ -1,0 +1,91 @@
+Question: What is the capital of France?
+A. Paris
+B. London
+C. Rome
+D. Berlin
+Answer: A
+
+Question: Which language is used for system programming?
+A. HTML
+B. C
+C. CSS
+D. JavaScript
+Answer: B
+
+Question: Who developed the theory of relativity?
+A. Newton
+B. Einstein
+C. Galileo
+D. Tesla
+Answer: B
+
+Question: Which data structure follows FIFO principle?
+A. Stack
+B. Queue
+C. Tree
+D. Graph
+Answer: B
+
+Question: Which keyword is used to define a constant in C?
+A. const
+B. static
+C. define
+D. final
+Answer: A
+
+Question: What is the size of int in most 32-bit systems?
+A. 2 bytes
+B. 4 bytes
+C. 8 bytes
+D. 1 byte
+Answer: B
+
+Question: Which operator is used to access structure members?
+A. .
+B. ->
+C. *
+D. &
+Answer: A
+
+Question: Which header file is required for malloc()?
+A. stdio.h
+B. conio.h
+C. stdlib.h
+D. string.h
+Answer: C
+
+Question: Which loop is guaranteed to execute at least once?
+A. for
+B. while
+C. do-while
+D. nested loop
+Answer: C
+
+Question: What is the output of 5 % 2 in C?
+A. 0
+B. 1
+C. 2
+D. 2.5
+Answer: B
+
+Question: Which function is used to read a string with spaces?
+A. scanf()
+B. gets()
+C. fgets()
+D. puts()
+Answer: C
+
+Question: Which sorting algorithm has the best average case complexity?
+A. Bubble Sort
+B. Selection Sort
+C. Insertion Sort
+D. Merge Sort
+Answer: D
+
+Question: What does NULL represent in C?
+A. Empty character
+B. Zero
+C. Garbage value
+D. Invalid memory address
+Answer: B
+
