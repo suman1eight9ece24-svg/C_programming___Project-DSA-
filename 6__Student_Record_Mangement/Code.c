@@ -11,6 +11,45 @@ struct student {
 
 struct student *head = NULL;
 
+// ---------- FILE FUNCTIONS ----------
+
+void saveToFile() {
+    FILE *fp = fopen("students.txt", "w");
+    if (fp == NULL) {
+        printf("File error\n");
+        return;
+    }
+
+    struct student *temp = head;
+    while (temp != NULL) {
+        fprintf(fp, "%d %s %.2f\n",
+                temp->roll, temp->name, temp->cgpa);
+        temp = temp->next;
+    }
+    fclose(fp);
+}
+
+void loadFromFile() {
+    FILE *fp = fopen("students.txt", "r");
+    if (fp == NULL)
+        return;   // File not present first time
+
+    while (1) {
+        struct student *newNode = malloc(sizeof(struct student));
+        if (fscanf(fp, "%d %s %f",
+                   &newNode->roll,
+                   newNode->name,
+                   &newNode->cgpa) != 3) {
+            free(newNode);
+            break;
+        }
+        newNode->next = head;
+        head = newNode;
+    }
+    fclose(fp);
+}
+
+// ---------- CORE FUNCTIONS ----------
 
 void addStudent() {
     struct student *newNode = malloc(sizeof(struct student));
@@ -18,7 +57,7 @@ void addStudent() {
     printf("Enter roll: ");
     scanf("%d", &newNode->roll);
 
-    printf("Enter name: ");
+    printf("Enter name [without space]: ");
     scanf("%s", newNode->name);
 
     printf("Enter CGPA: ");
@@ -34,6 +73,8 @@ void addStudent() {
             temp = temp->next;
         temp->next = newNode;
     }
+
+    saveToFile();
 }
 
 void deleteStudent() {
@@ -46,6 +87,7 @@ void deleteStudent() {
     if (temp != NULL && temp->roll == Roll) {
         head = temp->next;
         free(temp);
+        saveToFile();
         return;
     }
 
@@ -61,6 +103,7 @@ void deleteStudent() {
 
     prev->next = temp->next;
     free(temp);
+    saveToFile();
 }
 
 void searchStudent() {
@@ -71,7 +114,8 @@ void searchStudent() {
     struct student *temp = head;
     while (temp != NULL) {
         if (temp->roll == roll) {
-            printf("Found: %s %.2f\n", temp->name, temp->cgpa);
+            printf("Found: %s CGPA: %.2f\n",
+                   temp->name, temp->cgpa);
             return;
         }
         temp = temp->next;
@@ -89,10 +133,12 @@ void updateMarks() {
         if (temp->roll == Roll) {
             printf("Enter new CGPA: ");
             scanf("%f", &temp->cgpa);
+            saveToFile();
             return;
         }
         temp = temp->next;
     }
+    printf("Student not found\n");
 }
 
 void sortByMarks() {
@@ -104,6 +150,7 @@ void sortByMarks() {
     for (i = head; i != NULL; i = i->next) {
         for (j = i->next; j != NULL; j = j->next) {
             if (i->cgpa > j->cgpa) {
+
                 tempRoll = i->roll;
                 i->roll = j->roll;
                 j->roll = tempRoll;
@@ -118,10 +165,16 @@ void sortByMarks() {
             }
         }
     }
+    saveToFile();
 }
 
 void display() {
     struct student *temp = head;
+    if (temp == NULL) {
+        printf("No records found\n");
+        return;
+    }
+
     while (temp != NULL) {
         printf("Roll:%d Name:%s CGPA:%.2f\n",
                temp->roll, temp->name, temp->cgpa);
@@ -129,11 +182,19 @@ void display() {
     }
 }
 
+/* ---------- MAIN ---------- */
 
 int main() {
     int choice;
+
+    loadFromFile();   // Load saved data at start
+
+    printf(" =============================\n");
+    printf("||            MENU           ||\n");
+    printf(" =============================\n");
+
     do {
-        printf("\n1.Add 2.Delete 3.Search 4.Update 5.Sort 6.Display 0.Exit\n");
+        printf("\n1.Add \n2.Delete \n3.Search \n4.Update \n5.Sort \n6.Display \n0.Exit\n");
         scanf("%d", &choice);
 
         switch (choice) {
