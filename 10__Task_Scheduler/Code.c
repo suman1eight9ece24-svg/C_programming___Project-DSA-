@@ -125,13 +125,13 @@ void undoLastTask() {
     Task lastTask = popFromStack();
     
     if (lastTask.id == -1) {
-        printf("\n⚠ Nothing to undo!\n");
+        printf("\nNothing to undo!\n");
         return;
     }
     
     // Remove from linked list
     if (taskList == NULL) {
-        printf("\n⚠ Task list is empty!\n");
+        printf("\nTask list is empty!\n");
         return;
     }
     
@@ -216,7 +216,7 @@ void displayQueue() {
 // Move all tasks to processing queue
 void processBatch() {
     if (taskList == NULL) {
-        printf("\n⚠ No tasks to process!\n");
+        printf("\nNo tasks to process!\n");
         return;
     }
     
@@ -230,7 +230,7 @@ void processBatch() {
         temp = temp->next;
     }
     
-    printf("✓ %d task(s) queued for processing.\n", count);
+    printf("%d task(s) queued for processing.\n", count);
 }
 
 // Process next task from queue
@@ -238,13 +238,13 @@ void processNextTask() {
     Task task = dequeue();
     
     if (task.id == -1) {
-        printf("\n⚠ No tasks in processing queue!\n");
+        printf("\nNo tasks in processing queue!\n");
         return;
     }
     
-    printf("\n⚙ Processing: [ID: %d] %s (Priority: %d)\n", 
+    printf("\nProcessing: [ID: %d] %s (Priority: %d)\n", 
            task.id, task.name, task.priority);
-    printf("✓ Task completed!\n");
+    printf("Task completed!\n");
 }
 
 // Free all allocated memory
@@ -338,7 +338,7 @@ int main() {
                 exit(0);
                 
             default:
-                printf("\n⚠ Invalid choice! Please try again.\n");
+                printf("\nInvalid choice! Please try again.\n");
         }
     }
     
