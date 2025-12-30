@@ -1,1 +1,63 @@
+1. Queue Concept (FIFO)
+---------------------------------------------------------------
+A Queue follows the rule:
+First In → First Out (FIFO)
 
+In this project:
+- Normal patients are handled using a simple queue
+- Patients are served in the order they arrive
+
+Key variables used:
+- front → points to the first patient
+- rear  → points to the last patient
+
+Operations:
+- Enqueue → add patient at rear
+- Dequeue → remove patient from front
+
+2. Emergency Queue (Priority Queue Idea)
+---------------------------------------------------------------
+Instead:
+- Each patient has a priority
+- Lower priority number = more critical case
+
+After inserting a patient:
+- The emergency list is sorted by priority
+- Most critical patient is always served first
+
+This simulates emergency handling in hospitals.
+
+3. Date Function in C
+---------------------------------------------------------------
+The time.h library is used to access system date.
+
+Important steps:
+- time_t t stores current time
+- localtime() converts it to readable format
+
+struct tm provides:
+- tm_mday  → day
+- tm_mon   → month
+- tm_year  → year
+- tm_wday  → weekday
+
+Used to display:
+- Current date
+- Current day name
+
+
+4. Time Function in C
+---------------------------------------------------------------
+Using the same time.h structure:
+
+Time fields:
+- tm_hour → hour
+- tm_min  → minute
+- tm_sec  → second
+
+Used to show:
+
+- Patient arrival time
+- Patient call time
+
+This adds realism and professionalism to the system.
