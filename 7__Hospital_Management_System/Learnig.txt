@@ -25,12 +25,9 @@ After inserting a patient:
 - The emergency list is sorted by priority
 - Most critical patient is always served first
 
-This simulates emergency handling in hospitals.
-
 3. Date Function in C
 ---------------------------------------------------------------
 The time.h library is used to access system date.
-
 Important steps:
 - time_t t stores current time
 - localtime() converts it to readable format
@@ -45,7 +42,6 @@ Used to display:
 - Current date
 - Current day name
 
-
 4. Time Function in C
 ---------------------------------------------------------------
 Using the same time.h structure:
@@ -54,10 +50,8 @@ Time fields:
 - tm_hour → hour
 - tm_min  → minute
 - tm_sec  → second
-
 Used to show:
-
 - Patient arrival time
 - Patient call time
-
-This adds realism and professionalism to the system.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates how basic C concepts can be combined to build real, practical usege. To make this learning part I use AI and also my won word. 
