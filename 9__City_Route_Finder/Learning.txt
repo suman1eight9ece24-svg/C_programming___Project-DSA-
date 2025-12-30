@@ -12,11 +12,6 @@ Key operations:
 • Enqueue → add city index to queue
 • Dequeue → remove city index from front
 
-Why Queue is important here:
-• BFS guarantees the shortest path in an unweighted graph
-• Ensures cities are visited in increasing distance order
-
-
 2. Graph Representation (Adjacency Matrix)
 ------------------------------------------
 Cities are represented as nodes.
@@ -31,7 +26,6 @@ Why adjacency matrix:
 • Fast route existence check
 • Suitable for small fixed-size graphs
 
-
 3. BFS – Shortest Path Algorithm
 --------------------------------
 Breadth First Search (BFS):
@@ -41,10 +35,6 @@ Breadth First Search (BFS):
 In this project BFS is used to:
 • Find the shortest path between two cities
 • Track the path using a parent array
-
-Key idea:
-• First time reaching destination = shortest route
-
 
 4. DFS – Route Existence Check
 ------------------------------
@@ -56,6 +46,10 @@ In this project DFS is used to:
 • Check whether any route exists between two cities
 • Does not guarantee shortest path
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates how basic C concepts can be combined to build real, practical usege. To make this learning part I use AI and also my won word. 
 Key difference from BFS:
 • DFS checks connectivity
 • BFS finds shortest route
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates how basic C concepts can be combined to build real, practical usege. To make this learning part I use AI and also my won word. 
