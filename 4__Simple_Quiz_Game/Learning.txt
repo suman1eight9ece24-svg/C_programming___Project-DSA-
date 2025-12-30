@@ -1,11 +1,7 @@
-Beep Sound in C (Windows)
-
 --------------------------------------------------
 Basic Example (ASCII Bell)
 --------------------------------------------------
-
 #include <stdio.h>
-
 int main() {
     printf("\a");   // ASCII Bell character
     return 0;
@@ -13,49 +9,17 @@ int main() {
 
 If sound is enabled in the terminal, this will produce a short beep.
 This method is part of the C standard.
-
-
---------------------------------------------------
-Using Beep in Practical Programs
---------------------------------------------------
-
-Example: Timer Completion Alert
-
-printf("\nTIME'S UP!\a\n");
-
-This approach is commonly used in:
-- Countdown timers
-- Stopwatches
-- Alarm programs
-- Error or warning notifications
-
-
 --------------------------------------------------
 Windows-Specific Beep (More Reliable)
 --------------------------------------------------
-
 Windows provides a dedicated API for sound output.
 
 Using Beep() (Windows only):
-
 #include <windows.h>
-
 int main() {
     Beep(750, 300);   // Frequency in Hz, Duration in milliseconds
     return 0;
 }
-
-
---------------------------------------------------
-Advantages of Beep()
---------------------------------------------------
-
-- Custom frequency control
-- Custom duration control
-- More reliable than ASCII Bell
-- Does not depend on terminal sound settings
-
-
 --------------------------------------------------
 Difference Between \\a and Beep()
 --------------------------------------------------
@@ -69,11 +33,5 @@ Beep()
 - Windows-only
 - Guaranteed sound output
 - Full control over tone and duration
-
-
---------------------------------------------------
-Conclusion
---------------------------------------------------
-
-Use \\a for simple, portable alerts.
-Use Beep() when working on Windows and reliable sound feedback is required.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates how basic C concepts can be combined to build real, practical usege. To make this learning part I use AI and also my won word. 
