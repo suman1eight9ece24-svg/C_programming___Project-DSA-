@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* BST node structure */
+// BST node structure 
 struct Book {
     int bookID;
     char title[50];
@@ -10,7 +10,7 @@ struct Book {
     struct Book *right;
 };
 
-/* Create a new book node */
+// ================= Create a Node =================
 struct Book* createBook(int id, char title[]) {
     struct Book* newBook = (struct Book*)malloc(sizeof(struct Book));
     newBook->bookID = id;
@@ -20,7 +20,7 @@ struct Book* createBook(int id, char title[]) {
     return newBook;
 }
 
-/* Insert a book into BST */
+// ================= Insert =================
 struct Book* insertBook(struct Book* root, int id, char title[]) {
     if (root == NULL)
         return createBook(id, title);
@@ -35,7 +35,7 @@ struct Book* insertBook(struct Book* root, int id, char title[]) {
     return root;
 }
 
-/* Search a book */
+// ================= search =================
 struct Book* searchBook(struct Book* root, int id) {
     if (root == NULL || root->bookID == id)
         return root;
@@ -46,30 +46,24 @@ struct Book* searchBook(struct Book* root, int id) {
         return searchBook(root->right, id);
 }
 
-/* Find minimum node (inorder successor) */
+
 struct Book* findMin(struct Book* root) {
-    if (root == NULL)
-        return NULL;
-
-    while (root->left != NULL)
+    while (root && root->left != NULL)
         root = root->left;
-
     return root;
 }
 
-/* Delete a book */
+
+// ================= Delete Book =================
 struct Book* deleteBook(struct Book* root, int id) {
     if (root == NULL)
         return root;
 
-    if (id < root->bookID) {
+    if (id < root->bookID)
         root->left = deleteBook(root->left, id);
-    }
-    else if (id > root->bookID) {
+    else if (id > root->bookID)
         root->right = deleteBook(root->right, id);
-    }
     else {
-        /* Node found */
         if (root->left == NULL) {
             struct Book* temp = root->right;
             free(root);
@@ -81,7 +75,6 @@ struct Book* deleteBook(struct Book* root, int id) {
             return temp;
         }
 
-        /* Node with two children */
         struct Book* temp = findMin(root->right);
         root->bookID = temp->bookID;
         strcpy(root->title, temp->title);
@@ -90,24 +83,58 @@ struct Book* deleteBook(struct Book* root, int id) {
     return root;
 }
 
-/* Inorder traversal */
+// ================= Display Book List =================
 void inorder(struct Book* root) {
-    if (root == NULL)
-        return;
-
+    if (root == NULL) return;
     inorder(root->left);
     printf("Book ID: %d | Title: %s\n", root->bookID, root->title);
     inorder(root->right);
 }
 
-/* Main menu */
+// ==================================
+void saveInorder(struct Book* root, FILE* fp) {
+    if (root == NULL) return;
+    saveInorder(root->left, fp);
+    fprintf(fp, "%d|%s\n", root->bookID, root->title);
+    saveInorder(root->right, fp);
+}
+
+void saveToFile(struct Book* root) {
+    FILE* fp = fopen("Book.txt", "w");
+    if (fp == NULL) {
+        printf("File error!\n");
+        return;
+    }
+    saveInorder(root, fp);
+    fclose(fp);
+}
+
+// ==================================
+void loadFromFile(struct Book** root) {
+    FILE* fp = fopen("Book.txt", "r");
+    if (fp == NULL) return;
+
+    int id;
+    char title[50];
+
+    while (fscanf(fp, "%d|%[^\n]\n", &id, title) != EOF) {
+        *root = insertBook(*root, id, title);
+    }
+    fclose(fp);
+}
+
+// ======================================================================================================
 int main() {
     struct Book* root = NULL;
     int choice, id;
     char title[50];
 
+    loadFromFile(&root);
+
     while (1) {
-        printf("\n--- Library Book Management ---\n");
+        printf("=============================\n");
+        printf("|| Library Book Management ||\n");
+        printf("=============================\n");
         printf("1. Insert Book\n");
         printf("2. Delete Book\n");
         printf("3. Search Book\n");
@@ -118,55 +145,51 @@ int main() {
 
         switch (choice) {
 
-            case 1:
-                printf("Enter Book ID: ");
+        case 1:
+            printf("Enter Book ID: ");
+            scanf("%d", &id);
+            printf("Enter Book Title: ");
+            scanf(" %[^\n]", title);
+            root = insertBook(root, id, title);
+            saveToFile(root);
+            break;
+
+        case 2:
+            if (root == NULL)
+                printf("Library is Empty !!\n");
+            else {
+                printf("Enter Book ID to delete: ");
                 scanf("%d", &id);
-                printf("Enter Book Title: ");
-                scanf(" %[^\n]", title);
-                root = insertBook(root, id, title);
-                break;
-
-            case 2:
-                if (root == NULL) {
-                    printf("Library is Empty !!\n");
-                } else {
-                    printf("Enter Book ID to delete: ");
-                    scanf("%d", &id);
-                    root = deleteBook(root, id);
-                }
-                break;
-
-            case 3: {
-                if (root == NULL) {
-                    printf("Library is Empty !!\n");
-                } else {
-                    struct Book* found;
-                    printf("Enter Book ID to search: ");
-                    scanf("%d", &id);
-                    found = searchBook(root, id);
-
-                    if (found)
-                        printf("Book Found: %s\n", found->title);
-                    else
-                        printf("Book not found\n");
-                }
-                break;
+                root = deleteBook(root, id);
+                saveToFile(root);
             }
+            break;
 
-            case 4:
-                if (root == NULL)
-                    printf("Library is Empty !!\n");
-                else {
-                    printf("\nBooks in Library (Sorted by ID):\n");
-                    inorder(root);
-                }
-                break;
+        case 3: {
+            struct Book* found;
+            printf("Enter Book ID to search: ");
+            scanf("%d", &id);
+            found = searchBook(root, id);
+            if (found)
+                printf("Book Found: %s\n", found->title);
+            else
+                printf("Book not found\n");
+            break;
+        }
 
-            case 5:
-                exit(0);
+        case 4:
+            if (root == NULL)
+                printf("Library is Empty !!\n");
+            else
+                inorder(root);
+            break;
 
-            default:
-                printf("Invalid choice\n");
+        case 5:
+            saveToFile(root);
+            exit(0);
+
+        default:
+            printf("Invalid choice\n");
         }
     }
 }
