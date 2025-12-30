@@ -66,7 +66,7 @@ int main() {
     int score = 0;
     char userAns;
     printf("===== QUIZ GAME =====\n");
-    // ⏱️ START STOPWATCH
+    // START STOPWATCH
     time_t startTime = time(NULL);
 
     for (int i = 0; i < count; i++) {
@@ -86,7 +86,7 @@ int main() {
             Sleep(500);
         }
     }
-        // ⏱️ STOP STOPWATCH
+        // STOP STOPWATCH
     time_t endTime = time(NULL);
 
         long totalSeconds = (long)difftime(endTime, startTime);
