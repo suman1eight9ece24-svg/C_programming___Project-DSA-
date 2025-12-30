@@ -90,3 +90,5 @@ To solve this, conditional compilation is used.
 #define CLEAR "clear"
 #endif
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates how basic C concepts can be combined to build real, practical usege. To make this learning part I use AI and also my won word. 
