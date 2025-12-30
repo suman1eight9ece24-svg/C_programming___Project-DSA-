@@ -1,1 +1,61 @@
+1. Queue in C (Used for BFS)
+----------------------------
+A Queue follows the FIFO rule:
+First In → First Out
 
+In this project:
+• A queue is used to implement Breadth First Search (BFS)
+• It stores city indices to be visited next
+• Helps explore cities level-by-level
+
+Key operations:
+• Enqueue → add city index to queue
+• Dequeue → remove city index from front
+
+Why Queue is important here:
+• BFS guarantees the shortest path in an unweighted graph
+• Ensures cities are visited in increasing distance order
+
+
+2. Graph Representation (Adjacency Matrix)
+------------------------------------------
+Cities are represented as nodes.
+Routes are represented as edges.
+
+Implementation:
+• 2D matrix (adjMatrix)
+• adjMatrix[i][j] = 1 means a route exists
+
+Why adjacency matrix:
+• Simple to implement
+• Fast route existence check
+• Suitable for small fixed-size graphs
+
+
+3. BFS – Shortest Path Algorithm
+--------------------------------
+Breadth First Search (BFS):
+• Explores all neighboring cities first
+• Uses a queue internally
+
+In this project BFS is used to:
+• Find the shortest path between two cities
+• Track the path using a parent array
+
+Key idea:
+• First time reaching destination = shortest route
+
+
+4. DFS – Route Existence Check
+------------------------------
+Depth First Search (DFS):
+• Explores one path completely before backtracking
+• Uses recursion
+
+In this project DFS is used to:
+• Check whether any route exists between two cities
+• Does not guarantee shortest path
+
+Key difference from BFS:
+• DFS checks connectivity
+• BFS finds shortest route
