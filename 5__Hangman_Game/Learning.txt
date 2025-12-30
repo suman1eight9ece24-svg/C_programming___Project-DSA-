@@ -1,1 +1,89 @@
+--------------------------------------------------------
+1. TRIE DATA STRUCTURE
+--------------------------------------------------------
+A Trie (Prefix Tree) is used to store words character by character.
 
+Each node contains:
+- child[26]  → pointers for letters 'a' to 'z'
+- terminal   → marks the end of a valid word
+
+This allows:
+- Efficient word storage
+- Easy extension for dictionary-based games
+- Structured traversal instead of random arrays
+
+--------------------------------------------------------
+2. DYNAMIC MEMORY ALLOCATION
+--------------------------------------------------------
+Trie nodes are created dynamically using malloc().
+
+Why important:
+- Memory is allocated only when needed
+- Allows flexible word insertion
+- Avoids fixed-size limitations
+
+Every new character creates a node only if it does not exist.
+
+--------------------------------------------------------
+3. INSERTING WORDS INTO TRIE
+--------------------------------------------------------
+Words are inserted character by character.
+
+Logic:
+- Start from root
+- Convert character to index (char - 'a')
+- Create node if missing
+- Move forward
+- Mark terminal = true at word end
+
+This ensures:
+- Shared prefixes are stored once
+- Memory-efficient dictionary
+
+--------------------------------------------------------
+4. RANDOM WORD SELECTION FROM TRIE
+--------------------------------------------------------
+Instead of picking a word from an array, a random path is chosen
+inside the Trie.
+
+Technique used:
+- Collect available child nodes
+- Randomly select one
+- Recursively move deeper
+- Stop randomly at a terminal node
+
+--------------------------------------------------------
+5. RECURSION IN TRIE TRAVERSAL
+--------------------------------------------------------
+Random word generation uses recursion.
+
+Why recursion fits here:
+- Trie is a tree structure
+- Each recursive call goes one level deeper
+- Base cases handle word termination or dead ends
+
+--------------------------------------------------------
+6. INPUT VALIDATION
+--------------------------------------------------------
+User input is validated using:
+- isalpha()  → ensures only letters
+- tolower()  → case-insensitive input
+- guessed[]  → prevents repeated guesses
+
+--------------------------------------------------------
+7. GAME STATE MANAGEMENT
+--------------------------------------------------------
+The game tracks:
+- life count
+- correct guesses
+- wrong guesses
+- win/loss condition
+
+Arrays used:
+- guessed[26] → track guessed letters
+- wrong[]     → store incorrect attempts
+
+==========================================================================================================================================================
+========================================================
+END OF FILE
+========================================================
