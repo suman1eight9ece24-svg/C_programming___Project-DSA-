@@ -1,1 +1,32 @@
+-------------------------------------------------------------
+1. Binary Search Tree (BST) Concept
+-------------------------------------------------------------
+A Binary Search Tree follows this rule:
 
+• Left subtree contains smaller keys
+• Right subtree contains larger keys
+• No duplicate keys allowed
+
+In this project:
+• bookID is used as the key
+• Books are automatically stored in sorted order
+• Searching, inserting, and deleting become efficient
+
+A) BST Node Structure :- Each node represents one book and contains information.
+B) Insertion :- Insertion follows BST rules, This ensures the tree remains ordered.
+C) Searching :- Search operation to compares bookID.
+D) Deletion :- This keeps BST properties intact.
+E) Inorder Traversal :- Inorder traversal prints books in sorted order : Left → Root → Right
+
+-------------------------------------------------------------
+2. File Handling for Persistence
+-------------------------------------------------------------
+Data is stored in "Book.txt" using inorder traversal.
+
+Format:
+bookID|bookTitle
+
+Features:
+• Data is saved before exit
+• Data is loaded at program start
+• BST is reconstructed from file
