@@ -9,8 +9,6 @@
 • Linked lists allow:
   - Dynamic memory allocation
   - Easy insertion and deletion of tasks
-• This structure represents the main task database.
-
 --------------------------------------------------
 2. Stack (Undo Feature)
 --------------------------------------------------
@@ -21,8 +19,6 @@
 • Undo operation:
   - Pops the last task from the stack
   - Removes the same task from the linked list
-• This models real undo behavior in applications.
-
 --------------------------------------------------
 3. Queue (Task Processing)
 --------------------------------------------------
@@ -31,4 +27,5 @@
 • All tasks from the linked list are moved into the queue
   when batch processing starts.
 • Tasks are processed one by one from the front of the queue.
-• This simulates CPU or job scheduling systems.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates how basic C concepts can be combined to build real, practical usege. To make this learning part I use AI and also my won word. 
