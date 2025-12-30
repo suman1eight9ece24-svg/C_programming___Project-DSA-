@@ -35,11 +35,9 @@ Logic:
 - Create node if missing
 - Move forward
 - Mark terminal = true at word end
-
 This ensures:
 - Shared prefixes are stored once
 - Memory-efficient dictionary
-
 --------------------------------------------------------
 4. RANDOM WORD SELECTION FROM TRIE
 --------------------------------------------------------
@@ -51,7 +49,6 @@ Technique used:
 - Randomly select one
 - Recursively move deeper
 - Stop randomly at a terminal node
-
 --------------------------------------------------------
 5. RECURSION IN TRIE TRAVERSAL
 --------------------------------------------------------
@@ -61,7 +58,6 @@ Why recursion fits here:
 - Trie is a tree structure
 - Each recursive call goes one level deeper
 - Base cases handle word termination or dead ends
-
 --------------------------------------------------------
 6. INPUT VALIDATION
 --------------------------------------------------------
@@ -82,8 +78,5 @@ The game tracks:
 Arrays used:
 - guessed[26] → track guessed letters
 - wrong[]     → store incorrect attempts
-
-==========================================================================================================================================================
-========================================================
-END OF FILE
-========================================================
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates how basic C concepts can be combined to build real, practical usege. To make this learning part I use AI and also my won word. 
