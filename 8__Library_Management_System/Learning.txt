@@ -22,11 +22,12 @@ E) Inorder Traversal :- Inorder traversal prints books in sorted order : Left �
 2. File Handling for Persistence
 -------------------------------------------------------------
 Data is stored in "Book.txt" using inorder traversal.
-
 Format:
 bookID|bookTitle
-
 Features:
 • Data is saved before exit
 • Data is loaded at program start
 • BST is reconstructed from file
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates how basic C concepts can be combined to build real, practical usege. To make this learning part I use AI and also my won word. 
