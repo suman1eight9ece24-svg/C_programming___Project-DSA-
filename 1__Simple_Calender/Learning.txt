@@ -1,1 +1,63 @@
+_**Zeller’s Congruence**_
 
+A Mathematical Formula to Find the Day of the Week
+
+Zeller’s Congruence is a well-known mathematical algorithm used to determine the day of the week for any given date. It is widely used in calendar systems, operating systems, and programming problems related to date calculations.
+
+**Purpose**:-
+Given a date (day, month, year), Zeller’s Congruence returns a number that represents the day of the week.
+This allows programs to generate calendars without relying on built-in date libraries.
+
+Core Formula :- 
+h = ( q + ⌊13(m + 1) / 5⌋ + K + ⌊K / 4⌋ + ⌊J / 4⌋ + 5J ) mod 7
+
+Meaning of Each Term:- 
+• q → Day of the month
+• m → Month
+• k → Year of the century (year % 100)
+• j → Zero-based century (year / 100)
+• h → Day index (0–6)
+
+Month Adjustment Rule
+
+Zeller’s Congruence treats January and February as months 13 and 14 of the previous year.
+
+So:
+January → 13
+February → 14
+Year → year − 1
+
+This adjustment simplifies leap year handling.
+Day Mapping
+
+The result h maps to days as follows:
+
+0 → Saturday
+1 → Sunday
+2 → Monday
+3 → Tuesday
+4 → Wednesday
+5 → Thursday
+6 → Friday
+
+Why the Formula Works :-
+
+The 13(m+1)/5 term distributes month offsets correctly
+k and k/4 account for normal year progression
+j and j/4 handle century leap year rules
+5j shifts the result based on century alignment
+mod 7 ensures the result fits within 7 days
+This design makes the formula accurate across centuries.
+===================================================================================================
+===================================================================================================
+Example (Conceptual) :-
+Find the day for 1 March 2024
+
+q = 1
+m = 3
+k = 24
+j = 20
+After substitution and modulo operation, the result corresponds to Friday.
+
+
+After substitution and modulo operation, the result corresponds to Friday.
