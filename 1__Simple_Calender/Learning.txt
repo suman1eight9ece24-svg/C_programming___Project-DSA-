@@ -49,7 +49,6 @@ j and j/4 handle century leap year rules
 mod 7 ensures the result fits within 7 days
 This design makes the formula accurate across centuries.
 ===================================================================================================
-===================================================================================================
 Example (Conceptual) :-
 Find the day for 1 March 2024
 
@@ -59,5 +58,5 @@ k = 24
 j = 20
 After substitution and modulo operation, the result corresponds to Friday.
 
-
-After substitution and modulo operation, the result corresponds to Friday.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates how basic C concepts can be combined to build real, practical usege. To make this learning part I use AI and also my won word. 
