@@ -1,7 +1,6 @@
 ============================================================
 ASCII ART & COLOR IN C PROGRAMMING
 ============================================================
-
 ASCII art is a technique of creating visual designs using
 standard keyboard characters. In C programming, ASCII art
 is widely used in console applications to improve user
@@ -10,24 +9,17 @@ experience without using graphics libraries.
 ------------------------------------------------------------
 1. WHAT IS ASCII ART
 ------------------------------------------------------------
-
-ASCII Art is made using characters such as:
-
-#  *  @  $  %  &  |  _  -  /  \  ()
-
+ASCII Art is made using characters such as:  #  *  @  $  %  &  |  _  -  /  \  ()
 Example (Simple Box):
-
 ##########
 #  HELLO #
 ##########
 
 ASCII art works because every character occupies a fixed
 space in the console (monospace font).
-
 ------------------------------------------------------------
 2. WHY ASCII ART IS USED
 ------------------------------------------------------------
-
 • Makes console programs visually attractive  
 • No need for graphics libraries  
 • Works on low-end systems  
@@ -37,31 +29,25 @@ space in the console (monospace font).
 ------------------------------------------------------------
 3. ASCII ART IN C (BASIC EXAMPLE)
 ------------------------------------------------------------
-
 printf("###########\n");
 printf("#  WELCOME #\n");
 printf("###########\n");
 
 Key point:
 ASCII art is just text printed using printf().
-
 ------------------------------------------------------------
 4. ADDING COLOR TO ASCII ART
 ------------------------------------------------------------
-
 By default, console text is white.
 Colors are added using ANSI escape codes.
-
 Syntax:
 \033[<color_code>m
-
 Reset color:
 \033[0m
 
 ------------------------------------------------------------
 5. ANSI COLOR CODES
 ------------------------------------------------------------
-
 Text Colors:
 30 - Black
 31 - Red
@@ -76,11 +62,9 @@ Example:
 \033[31m  -> Red
 \033[32m  -> Green
 \033[0m   -> Reset
-
 ------------------------------------------------------------
 6. COLORED ASCII ART EXAMPLE
 ------------------------------------------------------------
-
 printf("\033[33m");
 printf("   _______\n");
 printf("  |  CUP  |\n");
@@ -88,28 +72,24 @@ printf("  |_______|\n");
 printf("\033[0m");
 
 This prints the ASCII art in yellow color.
-
 ------------------------------------------------------------
 7. MULTI-COLOR ASCII ART
 ------------------------------------------------------------
-
 printf("\033[31m###\n");   // Red
 printf("\033[32m###\n");   // Green
 printf("\033[34m###\n");   // Blue
 printf("\033[0m");         // Reset
 
-You can mix colors line by line or section by section.
-
 ------------------------------------------------------------
 8. PLATFORM COMPATIBILITY (IMPORTANT)
 ------------------------------------------------------------
-
-• Linux / macOS:
+**Linux / macOS:
   ANSI colors work by default
-
-• Windows:
+**Windows:
   Older CMD does NOT support ANSI by default
   Windows 10+ supports ANSI in most terminals
+**Alternative (Windows):
+  Use SetConsoleTextAttribute() from windows.h
 
-Alternative (Windows):
-Use SetConsoleTextAttribute() from windows.h
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates how basic C concepts can be combined to build real, practical usege. To make this learning part I use AI and also my won word. 
