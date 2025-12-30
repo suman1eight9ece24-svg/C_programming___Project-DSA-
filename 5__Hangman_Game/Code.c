@@ -53,12 +53,12 @@ int main() {
             guess = tolower(guess);
 
             if (!isalpha(guess)) {
-                printf("Invalid input. Enter a letter only.\n");
+                printf("!!Invalid input!!  ....Enter a letter only.\n");
                 continue;
             }
 
             if (guessed[guess - 'a']) {
-                printf("You already guessed '%c'. Try another.\n", guess);
+                printf("You already guessed '%c' Try other letter.\n", guess);
                 continue;
             }
 
@@ -74,13 +74,13 @@ int main() {
             if (!correct) {
                 wrong[wrongCount++] = guess;
                 life--;
-                printf("Wrong guess!\n");
+                printf("!!! Wrong guess !!!\n");
             } else {
-                printf("Correct guess!\n");
+                printf("Correct guess....\n");
             }
 
             if (strcmp(hidden, word) == 0) {
-                printf("\nYou guessed the word: %s\n", word);
+                printf("\n You guessed the word: %s \n", word);
                 printf("You WIN!\n");
                 break;
             }
@@ -89,15 +89,15 @@ int main() {
         // ===== LOSS HANDLING =====
         if (life == 0) {
             char choice;
-            printf("\nYou LOST!\n");
-            printf("The word was: %s\n", word);
-            printf("Do you want to play again? (y/n): ");
+            printf("\n You LOST!! \n");
+            printf("The word was: %s \n", word);
+            printf("Do you want to play again? (y/n) :- ");
             scanf(" %c", &choice);
 
             if (choice == 'y' || choice == 'Y') {
                 continue;   // restart game
             } else {
-                printf("\nThanks for playing!\n");
+                printf("\n Thanks for playing!! \n");
                 break;      // exit program
             }
         }
