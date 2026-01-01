@@ -67,9 +67,6 @@ Your program uses time.h to:
 • Update seconds dynamically
 • Keep stopwatch accurate
 
-----------------------------------------------------------------------------------------------------------------------------------
-This is the correct professional approach instead of manual calculations.
-----------------------------------------------------------------------------------------------------------------------------------
 5. Cross-Platform Compatibility :- 
 -----------------------------------------------------------------
 Different operating systems use different system functions.
